@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import axios from "axios";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Header from "./components/Header";
+import TodayWeather from "./components/TodayWeather";
+import ForecastTile from "./components/ForecastTile";
+
+class App extends React.Component {
+
+  state = {
+    weatherData: ''
+  }
+
+  componentDidMount () {
+    axios.get('https://api.openweathermap.org/data/2.5/forecast?q=Calgary&cnt=5&appid=7f6d06daca8850915944e8b1f723dfb9')
+      .then(data => {
+        this.setState({
+          weatherData: data
+        })
+      })
+
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <Header />
+        <TodayWeather />
+        <ForecastTile />
+        <ForecastTile />
+        <ForecastTile />
+        <ForecastTile />
+      </div>
+    );
+  }
 }
 
 export default App;
