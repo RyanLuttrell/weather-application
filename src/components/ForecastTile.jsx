@@ -5,7 +5,7 @@ export default class ForecastTile extends React.Component {
         return (
             <div>
                 <h2 className="forecast-tile-day">Wed</h2>
-                <i class="fad fa-clouds"></i>
+                <i className="fad fa-clouds"></i>
                 <p className="forecast-tile-temp">18&#176;</p>
             </div>
         )
