@@ -1,0 +1,13 @@
+.today-weather-text {
+    text-align: center;
+}
+
+.today-info {
+    display: flex;
+    justify-content: center;
+}
+
+.today-tile-image {
+    width: 150px;
+}
+

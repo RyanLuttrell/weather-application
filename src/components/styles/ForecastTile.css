@@ -1,0 +1,9 @@
+.forecast-tile-day, .forecast-tile-temp {
+    text-align: center;
+}
+
+.forecast-tile-image {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}

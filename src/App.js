@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import './App.css';
 
 import Header from "./components/Header";
 import TodayWeather from "./components/TodayWeather";
@@ -38,11 +39,15 @@ class App extends React.Component {
     return (
       <div className="App">
         <Header />
-        <TodayWeather />
-        <ForecastTile />
-        <ForecastTile />
-        <ForecastTile />
-        <ForecastTile />
+        <main>
+          <TodayWeather />
+          <section className="forecast-section">
+            <ForecastTile />
+            <ForecastTile />
+            <ForecastTile />
+            <ForecastTile />
+          </section> 
+        </main>
       </div>
     );
   }
