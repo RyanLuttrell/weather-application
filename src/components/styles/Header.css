@@ -1,9 +1,18 @@
 header {
     display: flex; 
     justify-content: space-between;
-    max-width: 700px;
+    max-width: 600px;
     margin-right: auto;
     margin-left: auto;
+}
+
+.header-city-text:hover {
+    cursor: pointer;
+}
+
+.header-city-text-select {
+    font-weight: 600;
+    color: rgb(0, 184, 245);
 }
 
 

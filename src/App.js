@@ -11,14 +11,55 @@ class App extends React.Component {
   state = {
     calgaryWeather: '',
     charlottetownWeather: '',
-    torontoWeather: ''
+    torontoWeather: '',
+    todayIcon: '',
+    todayWeather: '',
+    todayTemp: '',
+    iconOne: '',
+    iconTwo: '',
+    iconThree: '',
+    iconFour: '',
+    dayOne: '',
+    dayTwo: '',
+    dayThree: '',
+    dayFour: '',
+    tempOne: '',
+    tempTwo: '',
+    tempThree: '',
+    tempFour: '',
+    calgarySelect: true,
+    charlottetownSelect: false,
+    torontoSelect: false,
+    cityWeather: 'calgary'
   }
 
   componentDidMount () {
+    const arrayOfWeekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat","Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+
+    const date = new Date()
+    const weekdayNumber = date.getDay()
+    this.setState({
+      dayOne: arrayOfWeekdays[weekdayNumber + 1],
+      dayTwo: arrayOfWeekdays[weekdayNumber + 2],
+      dayThree: arrayOfWeekdays[weekdayNumber + 3],
+      dayFour: arrayOfWeekdays[weekdayNumber + 4],
+    })
+    
     axios.get('https://api.openweathermap.org/data/2.5/onecall?lat=51.049999&lon=-114.066666&exclude=alerts,minutely,hourly&appid=7f6d06daca8850915944e8b1f723dfb9')
       .then(data => {
         this.setState({
-          calgaryWeather: data.data
+          calgaryWeather: data.data,
+          todayIcon: data.data.current.weather[0].icon,
+          todayTemp: data.data.current.feels_like,
+          todayWeather: data.data.current.weather[0].main,
+          iconOne: data.data.daily[1].weather[0].icon,
+          iconTwo: data.data.daily[2].weather[0].icon,
+          iconThree: data.data.daily[3].weather[0].icon,
+          iconFour: data.data.daily[4].weather[0].icon,
+          tempOne: data.data.daily[1].temp.day,
+          tempTwo: data.data.daily[2].temp.day,
+          tempThree: data.data.daily[3].temp.day,
+          tempFour: data.data.daily[4].temp.day
         })
       })
     axios.get('https://api.openweathermap.org/data/2.5/onecall?lat=46.238888&lon=-63.129166&exclude=alerts,minutely,hourly&appid=7f6d06daca8850915944e8b1f723dfb9')
@@ -35,17 +76,23 @@ class App extends React.Component {
     })
   }
 
+  citySelector = (city) => {
+    this.setState({
+      cityWeather: city
+    })
+  }
+
   render() {
     return (
       <div className="App">
-        <Header />
+        <Header select={this.state.cityWeather} handleClick={this.citySelector}/>
         <main>
-          <TodayWeather />
+          <TodayWeather weather={this.state.todayIcon}/>
           <section className="forecast-section">
-            <ForecastTile />
-            <ForecastTile />
-            <ForecastTile />
-            <ForecastTile />
+            <ForecastTile icon={this.state.iconOne} day={this.state.dayOne} temp={this.state.tempOne}/>
+            <ForecastTile icon={this.state.iconTwo} day={this.state.dayTwo} temp={this.state.tempTwo}/>
+            <ForecastTile icon={this.state.iconThree} day={this.state.dayThree} temp={this.state.tempThree}/>
+            <ForecastTile icon={this.state.iconFour} day={this.state.dayFour} temp={this.state.tempFour}/>
           </section> 
         </main>
       </div>

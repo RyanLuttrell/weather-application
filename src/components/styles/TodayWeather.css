@@ -1,3 +1,7 @@
+.today-weather {
+    border-bottom: 4px solid white;
+}
+
 .today-weather-text {
     text-align: center;
 }
