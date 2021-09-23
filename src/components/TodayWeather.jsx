@@ -11,7 +11,7 @@ export default class TodayWeather extends React.Component {
                 </div>
                 <div className='today-info'>
                     <div className='today-weather-icon'>
-                    <img src={`http://openweathermap.org/img/wn/${this.props.weather}@2x.png`} alt="" className="today-tile-image" />
+                    <img src={`http://openweathermap.org/img/wn/${this.props.weather}@2x.png`} alt={this.props.alt} className="today-tile-image" />
                     </div>
                     <div className="today-weather-info">
                         <h3 className="today-weather-temperature">{Math.round(this.props.temp - 273.15)}&#176;</h3>

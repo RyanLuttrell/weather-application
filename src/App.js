@@ -52,10 +52,15 @@ class App extends React.Component {
           todayIcon: data.data.current.weather[0].icon,
           todayTemp: data.data.current.feels_like,
           todayWeather: data.data.current.weather[0].main,
+          todayAlt: data.data.current.weather[0].description,
           iconOne: data.data.daily[1].weather[0].icon,
           iconTwo: data.data.daily[2].weather[0].icon,
           iconThree: data.data.daily[3].weather[0].icon,
           iconFour: data.data.daily[4].weather[0].icon,
+          altOne: data.data.daily[1].weather[0].description,
+          altTwo: data.data.daily[2].weather[0].description,
+          altThree: data.data.daily[3].weather[0].description,
+          altFour: data.data.daily[4].weather[0].description,
           tempOne: data.data.daily[1].temp.day,
           tempTwo: data.data.daily[2].temp.day,
           tempThree: data.data.daily[3].temp.day,
@@ -132,12 +137,12 @@ class App extends React.Component {
       <div className="App">
         <Header select={this.state.cityWeather} handleClick={this.citySelector}/>
         <main>
-          <TodayWeather weather={this.state.todayIcon} temp={this.state.todayTemp} climate={this.state.todayWeather}/>
+          <TodayWeather weather={this.state.todayIcon} temp={this.state.todayTemp} climate={this.state.todayWeather} alt={this.state.todayAlt}/>
           <section className="forecast-section">
-            <ForecastTile icon={this.state.iconOne} day={this.state.dayOne} temp={this.state.tempOne}/>
-            <ForecastTile icon={this.state.iconTwo} day={this.state.dayTwo} temp={this.state.tempTwo}/>
-            <ForecastTile icon={this.state.iconThree} day={this.state.dayThree} temp={this.state.tempThree}/>
-            <ForecastTile icon={this.state.iconFour} day={this.state.dayFour} temp={this.state.tempFour}/>
+            <ForecastTile icon={this.state.iconOne} day={this.state.dayOne} temp={this.state.tempOne} alt={this.state.altOne}/>
+            <ForecastTile icon={this.state.iconTwo} day={this.state.dayTwo} temp={this.state.tempTwo} alt={this.state.altTwo}/>
+            <ForecastTile icon={this.state.iconThree} day={this.state.dayThree} temp={this.state.tempThree} alt={this.state.altThree}/>
+            <ForecastTile icon={this.state.iconFour} day={this.state.dayFour} temp={this.state.tempFour} alt={this.state.altFour}/>
           </section> 
         </main>
       </div>
