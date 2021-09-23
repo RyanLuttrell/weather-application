@@ -1,5 +1,6 @@
 .forecast-tile {
     border-right: 4px solid white;
+    padding:20%;
 }
 
 .forecast-tile:last-child{
@@ -12,6 +13,19 @@
 
 .forecast-tile-image {
     display: block;
-    margin-right: auto;
-    margin-left: auto;
+    margin: 5px auto 10px auto;
+    width: 75px;
+}
+
+.forecast-tile-temp {
+    font-size: 25px;
+    font-weight: 700;
+}
+
+@media only screen and (max-width: 550px) {
+    .forecast-tile {
+        border-right: 0;
+        border-bottom: 4px solid white;
+        padding: 15px;
+    }
 }

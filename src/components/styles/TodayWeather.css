@@ -1,17 +1,36 @@
 .today-weather {
     border-bottom: 4px solid white;
+    padding: 50px 30px 30px 30px;
 }
 
 .today-weather-text {
     text-align: center;
+    font-weight: 200;
 }
 
 .today-info {
     display: flex;
     justify-content: center;
+    margin-left: -10%;
 }
 
 .today-tile-image {
     width: 150px;
 }
+
+.today-weather-temperature {
+    font-weight: 700;
+    font-size: 3rem;
+    margin: 30px 0 0 0;
+}
+
+.today-weather-climate {
+    font-size: 1.4rem;
+    margin: 10px 0 0 0;
+}
+
+@media only screen and (max-width: 650px) {
+
+}
+
 

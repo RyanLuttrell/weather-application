@@ -4,4 +4,6 @@
     font-family: 'Yanone Kaffeesatz', sans-serif;
     font-weight: 300;
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }

@@ -78,8 +78,53 @@ class App extends React.Component {
 
   citySelector = (city) => {
     this.setState({
-      cityWeather: city
+      cityWeather: city,
     })
+
+    if (city === 'calgary') {
+      this.setState({
+        todayIcon: this.state.calgaryWeather.current.weather[0].icon,
+        todayTemp: this.state.calgaryWeather.current.feels_like,
+        todayWeather: this.state.calgaryWeather.current.weather[0].main,
+        iconOne: this.state.calgaryWeather.daily[1].weather[0].icon,
+        iconTwo: this.state.calgaryWeather.daily[2].weather[0].icon,
+        iconThree: this.state.calgaryWeather.daily[3].weather[0].icon,
+        iconFour: this.state.calgaryWeather.daily[4].weather[0].icon,
+        tempOne: this.state.calgaryWeather.daily[1].temp.day,
+        tempTwo: this.state.calgaryWeather.daily[2].temp.day,
+        tempThree: this.state.calgaryWeather.daily[3].temp.day,
+        tempFour: this.state.calgaryWeather.daily[4].temp.day
+      })
+    } else if (city === 'charlottetown') {
+      this.setState({
+        todayIcon: this.state.charlottetownWeather.current.weather[0].icon,
+        todayTemp: this.state.charlottetownWeather.current.feels_like,
+        todayWeather: this.state.charlottetownWeather.current.weather[0].main,
+        iconOne: this.state.charlottetownWeather.daily[1].weather[0].icon,
+        iconTwo: this.state.charlottetownWeather.daily[2].weather[0].icon,
+        iconThree: this.state.charlottetownWeather.daily[3].weather[0].icon,
+        iconFour: this.state.charlottetownWeather.daily[4].weather[0].icon,
+        tempOne: this.state.charlottetownWeather.daily[1].temp.day,
+        tempTwo: this.state.charlottetownWeather.daily[2].temp.day,
+        tempThree: this.state.charlottetownWeather.daily[3].temp.day,
+        tempFour: this.state.charlottetownWeather.daily[4].temp.day
+      })
+    } else {
+      this.setState({
+        todayIcon: this.state.torontoWeather.current.weather[0].icon,
+        todayTemp: this.state.torontoWeather.current.feels_like,
+        todayWeather: this.state.torontoWeather.current.weather[0].main,
+        iconOne: this.state.torontoWeather.daily[1].weather[0].icon,
+        iconTwo: this.state.torontoWeather.daily[2].weather[0].icon,
+        iconThree: this.state.torontoWeather.daily[3].weather[0].icon,
+        iconFour: this.state.torontoWeather.daily[4].weather[0].icon,
+        tempOne: this.state.torontoWeather.daily[1].temp.day,
+        tempTwo: this.state.torontoWeather.daily[2].temp.day,
+        tempThree: this.state.torontoWeather.daily[3].temp.day,
+        tempFour: this.state.torontoWeather.daily[4].temp.day
+      })
+    }
+
   }
 
   render() {
@@ -87,7 +132,7 @@ class App extends React.Component {
       <div className="App">
         <Header select={this.state.cityWeather} handleClick={this.citySelector}/>
         <main>
-          <TodayWeather weather={this.state.todayIcon}/>
+          <TodayWeather weather={this.state.todayIcon} temp={this.state.todayTemp} climate={this.state.todayWeather}/>
           <section className="forecast-section">
             <ForecastTile icon={this.state.iconOne} day={this.state.dayOne} temp={this.state.tempOne}/>
             <ForecastTile icon={this.state.iconTwo} day={this.state.dayTwo} temp={this.state.tempTwo}/>

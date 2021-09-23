@@ -1,9 +1,13 @@
 header {
     display: flex; 
-    justify-content: space-between;
+    justify-content: space-around;
     max-width: 600px;
-    margin-right: auto;
-    margin-left: auto;
+    margin: 0 auto 25px auto;
+    padding: 0 100px;
+}
+
+.header-city-text, .header-city-text-select {
+    margin: 10px 10px;
 }
 
 .header-city-text:hover {
@@ -13,6 +17,14 @@ header {
 .header-city-text-select {
     font-weight: 600;
     color: rgb(0, 184, 245);
+}
+
+@media only screen and (max-width: 676px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+        padding: 0%;
+    }
 }
 
 
